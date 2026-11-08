@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy | Divide</title>
+<meta name="description" content="How Divide handles your information: what we collect, why, who we share it with, and how to delete it.">
+<meta name="theme-color" content="#05211A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231F5E4F'/%3E%3Crect x='28' y='14' width='8' height='24' rx='4' fill='%233FD3A8'/%3E%3Ccircle cx='32' cy='48' r='5' fill='%233FD3A8'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=JetBrains+Mono:wght@500&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#EEF7F2;--deep:#05211A;--panel:#FBFEFC;--forest:#1F5E4F;--forest-2:#174B3F;
+  --accent:#3FD3A8;--accent-hover:#62E0BB;--accent-muted:rgba(63,211,168,.18);
+  --ink:#0F2E28;--ink-2:#46655D;--ink-on-deep:#EAF7F1;--ink-on-deep-2:#A9CFC3;--line:#BFDCD1;
+  --ease-out:cubic-bezier(.16,1,.3,1);--ease-io:cubic-bezier(.65,0,.35,1);
+  --f-display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --f-body:"Open Sans",ui-sans-serif,system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,monospace;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{overflow-x:hidden;overflow-x:clip;scroll-behavior:smooth}
+body{margin:0;overflow-x:hidden;overflow-x:clip;background:var(--canvas);color:var(--ink);font:400 17px/1.7 var(--f-body);-webkit-font-smoothing:antialiased;animation:pagein .8s var(--ease-out) both}
+@keyframes pagein{from{opacity:0}to{opacity:1}}
+a{color:var(--forest);text-underline-offset:3px}
+a:hover{color:var(--forest-2)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.skip{position:fixed;left:16px;top:-60px;z-index:100;background:var(--accent);color:var(--deep);padding:10px 16px;border-radius:10px;font-weight:700;transition:top .3s var(--ease-out)}
+.skip:focus{top:16px}
+.env{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.env::before{content:"";position:absolute;width:70vmax;height:70vmax;border-radius:50%;filter:blur(60px);opacity:.5;background:radial-gradient(circle,rgba(63,211,168,.3),transparent 65%);left:-25vmax;top:20vh;animation:drift 80s var(--ease-io) infinite alternate;animation-delay:-20s}
+@keyframes drift{to{transform:translate(40vw,30vh) scale(1.1)}}
+body.paused *,body.paused *::before,body.paused *::after{animation-play-state:paused!important}
+
+/* header */
+.top{background:var(--deep);color:var(--ink-on-deep);position:relative;overflow:hidden}
+.top::after{content:"";position:absolute;right:-180px;bottom:-320px;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(63,211,168,.28),transparent 62%);pointer-events:none}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px clamp(16px,4vw,48px);position:relative;z-index:2}
+.wordmark{font:800 30px/1 var(--f-display);letter-spacing:-.03em;text-decoration:none;color:var(--ink-on-deep);display:inline-flex;align-items:baseline}
+.wordmark:hover{color:var(--ink-on-deep)}
+.wordmark .flip{display:inline-block;transform:rotate(180deg);transform-origin:50% 62%;color:var(--accent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font:700 14px/1 var(--f-body);padding:11px 18px;border-radius:999px;background:var(--accent);color:var(--deep);transition:background .35s var(--ease-out),transform .35s var(--ease-out)}
+.btn:hover{background:var(--accent-hover);color:var(--deep);transform:translateY(-2px)}
+@media (pointer:coarse){.btn{min-height:44px}}
+.intro{width:min(1080px,100% - 40px);margin:0 auto;padding:64px 0 72px;position:relative;z-index:2}
+.kicker{font:500 13px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1{font:800 clamp(42px,6vw,76px)/1.02 var(--f-display);letter-spacing:-.025em;margin:16px 0 0;max-width:14ch}
+.intro p{color:var(--ink-on-deep-2);font-size:clamp(17px,1.5vw,20px);max-width:52ch;margin:20px 0 0}
+.dates{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:28px;font:500 13px/1.4 var(--f-mono);color:var(--ink-on-deep-2)}
+.dates b{color:var(--ink-on-deep);font-weight:500}
+
+/* summary cards */
+.summary{width:min(1080px,100% - 40px);margin:-36px auto 0;position:relative;z-index:3;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.sum{background:var(--panel);border-radius:16px;padding:18px 18px 20px;box-shadow:0 1px 0 rgba(15,46,40,.04),0 14px 40px -16px rgba(15,46,40,.3);opacity:0;transform:translateY(16px);animation:rise .9s var(--ease-out) forwards}
+.sum:nth-child(2){animation-delay:.08s}.sum:nth-child(3){animation-delay:.16s}.sum:nth-child(4){animation-delay:.24s}
+@keyframes rise{to{opacity:1;transform:none}}
+.sum i{display:block;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px var(--accent-muted)}
+.sum b{display:block;font:700 17px/1.3 var(--f-display);margin-top:16px;letter-spacing:-.01em}
+.sum span{display:block;color:var(--ink-2);font-size:14.5px;line-height:1.5;margin-top:6px}
+
+/* body */
+.layout{width:min(1080px,100% - 40px);margin:0 auto;padding:72px 0 120px;display:grid;grid-template-columns:240px 1fr;gap:clamp(32px,6vw,80px);align-items:start}
+.toc{position:sticky;top:28px;font-size:14.5px}
+.toc p{font:500 12px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);margin:0 0 14px}
+.toc ol{list-style:none;margin:0;padding:0;display:grid;gap:2px;border-left:1.5px solid var(--line)}
+.toc a{display:block;padding:6px 0 6px 16px;margin-left:-1.5px;border-left:1.5px solid transparent;color:var(--ink-2);text-decoration:none;transition:color .3s var(--ease-out),border-color .3s var(--ease-out)}
+.toc a:hover{color:var(--ink)}
+.toc a.on{color:var(--forest);border-left-color:var(--accent);font-weight:600}
+article{max-width:68ch}
+article section{scroll-margin-top:24px;padding-bottom:12px}
+article section + section{border-top:1.5px solid var(--line);padding-top:36px;margin-top:36px}
+h2{font:800 clamp(26px,2.6vw,32px)/1.15 var(--f-display);letter-spacing:-.02em;margin:0 0 14px;display:flex;gap:14px;align-items:baseline}
+h2 .n{font:500 13px/1 var(--f-mono);color:var(--forest);letter-spacing:.08em;flex:none}
+h3{font:700 18px/1.35 var(--f-display);margin:24px 0 6px}
+article p{margin:12px 0}
+article ul{margin:12px 0;padding:0;list-style:none;display:grid;gap:10px}
+article li{position:relative;padding-left:22px}
+article li::before{content:"";position:absolute;left:2px;top:.68em;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.note{background:var(--panel);border-radius:14px;padding:16px 18px;margin:18px 0;box-shadow:inset 0 0 0 1.5px var(--line)}
+.note b{color:var(--forest)}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px}
+th,td{text-align:left;padding:11px 12px;vertical-align:top;border-bottom:1.5px solid var(--line)}
+th{font:500 12px/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.tablewrap{overflow-x:auto}
+
+footer{background:#03160F;color:var(--ink-on-deep-2);padding:44px 0;font-size:14px}
+footer .in{width:min(1080px,100% - 40px);margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:center}
+footer a{color:var(--ink-on-deep)}
+
+@media (max-width:900px){
+  .summary{grid-template-columns:1fr 1fr}
+  .layout{grid-template-columns:1fr}
+  .toc{position:static}
+}
+@media (max-width:520px){.summary{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .sum{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="env" aria-hidden="true"></div>
+
+<header class="top">
+  <nav class="nav" aria-label="Main">
+    <a class="wordmark" href="index.html" aria-label="Divide, home">div<span class="flip" aria-hidden="true">i</span>de</a>
+    <a class="btn" href="index.html#signup">Get launch updates</a>
+  </nav>
+  <div class="intro">
+    <span class="kicker">Privacy policy</span>
+    <h1>Your data, in plain English.</h1>
+    <p>Divide tells you which card to use. It never moves your money, never stores your full card number, and never sells your information. Here is exactly what we collect and why.</p>
+    <div class="dates"><span>Effective <b>November 8, 2026</b></span><span>Last updated <b>November 8, 2026</b></span></div>
+  </div>
+</header>
+
+<div class="summary" role="list" aria-label="The short version">
+  <div class="sum" role="listitem"><i aria-hidden="true"></i><b>Advice only</b><span>Divide never processes a payment or touches your money.</span></div>
+  <div class="sum" role="listitem"><i aria-hidden="true"></i><b>No full card numbers</b><span>We only ever keep the last four digits to tell your cards apart.</span></div>
+  <div class="sum" role="listitem"><i aria-hidden="true"></i><b>Never sold</b><span>We don't sell or rent your personal information. Ever.</span></div>
+  <div class="sum" role="listitem"><i aria-hidden="true"></i><b>Yours to delete</b><span>Remove your data anytime in Settings or by emailing us.</span></div>
+</div>
+
+<main id="main" class="layout" tabindex="-1">
+  <nav class="toc" aria-label="On this page">
+    <p>On this page</p>
+    <ol>
+      <li><a href="#who">Who we are</a></li>
+      <li><a href="#collect">What we collect</a></li>
+      <li><a href="#use">How we use it</a></li>
+      <li><a href="#share">Who we share it with</a></li>
+      <li><a href="#keep">How long we keep it</a></li>
+      <li><a href="#security">How we protect it</a></li>
+      <li><a href="#choices">Your choices and rights</a></li>
+      <li><a href="#kids">Children</a></li>
+      <li><a href="#changes">Changes</a></li>
+      <li><a href="#contact">Contact us</a></li>
+    </ol>
+  </nav>
+
+  <article>
+    <section id="who">
+      <h2><span class="n">01</span>Who we are</h2>
+      <p>Divide LLC ("Divide," "we," "us") makes the Divide browser extension and runs this website. Divide is based in the United States. This policy covers the extension, this website, and any emails we send you.</p>
+      <p>Divide is an advisory tool. It suggests which of your cards to use at checkout. It does not process payments, move money, apply for credit, or make purchases for you.</p>
+    </section>
+
+    <section id="collect">
+      <h2><span class="n">02</span>What we collect</h2>
+      <h3>When you sign up for updates on this website</h3>
+      <ul>
+        <li>Your email address.</li>
+        <li>Whether you want launch updates or already use Divide.</li>
+      </ul>
+      <h3>When you use the Divide extension</h3>
+      <ul>
+        <li><b>Card details you add:</b> the card issuer and name, the last four digits, the credit limit, and the balance. If you add cards by hand, this is the only card information we have.</li>
+        <li><b>If you choose to connect an account:</b> balances, credit limits, and due dates for your linked cards, so recommendations stay current. You sign in to your bank or issuer through a secure connection provider. Divide never sees or stores your bank password.</li>
+        <li><b>Checkout details:</b> when you're on a checkout page, the extension reads the store name, the purchase total, and the store type so it can score your cards for that purchase.</li>
+        <li><b>Your choices:</b> which recommendations you accept or change, so Divide's suggestions get more accurate for you over time.</li>
+        <li><b>Account details:</b> the email you use to sign in, and your settings and preferences.</li>
+      </ul>
+      <div class="note"><b>What we never collect:</b> your full card number, your card's security code (CVV), your bank password, or the items in your cart.</div>
+      <h3>When you visit this website</h3>
+      <p>This website doesn't use advertising trackers or analytics cookies. Like any website, our hosting provider automatically receives basic technical information when your browser loads the page, such as your IP address and browser type. The page loads its fonts from Google Fonts, which also receives your IP address when it delivers them.</p>
+    </section>
+
+    <section id="use">
+      <h2><span class="n">03</span>How we use it</h2>
+      <ul>
+        <li>To recommend the best card for each purchase and explain why.</li>
+        <li>To show how a purchase would change each card's balance and utilization.</li>
+        <li>To improve the accuracy of recommendations, including learning from the recommendations you accept or change.</li>
+        <li>To send the emails you asked for, like the launch announcement and product updates.</li>
+        <li>To keep Divide secure, fix problems, and respond to you when you contact us.</li>
+        <li>To meet legal obligations.</li>
+      </ul>
+      <p>We don't use your information to make credit decisions, and we don't sell it to lenders, advertisers, or data brokers.</p>
+    </section>
+
+    <section id="share">
+      <h2><span class="n">04</span>Who we share it with</h2>
+      <p>We don't sell or rent your personal information. We share it only with service providers that help us run Divide, and only what they need to do their job:</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Provider</th><th>What they do</th><th>What they receive</th></tr></thead>
+          <tbody>
+            <tr><td>Klaviyo</td><td>Sends our emails</td><td>Your email address and signup choice</td></tr>
+            <tr><td>Our hosting provider</td><td>Serves this website</td><td>Basic technical data like IP address</td></tr>
+            <tr><td>Google Fonts</td><td>Delivers the website's fonts</td><td>Your IP address and browser type</td></tr>
+            <tr><td>Secure account connection provider</td><td>Links your bank or issuer, only if you choose to connect</td><td>The connection you authorize</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>We may also share information if the law requires it, to protect the rights and safety of our users or others, or as part of a merger or sale of our business. If that happens, this policy will still apply to your information.</p>
+    </section>
+
+    <section id="keep">
+      <h2><span class="n">05</span>How long we keep it</h2>
+      <p>We keep your information only as long as you use Divide or stay on our email list. When you delete your account, we delete your card details and recommendation history. When you unsubscribe, we stop emailing you and remove you from our list. We may keep a small amount of information longer when the law requires it.</p>
+    </section>
+
+    <section id="security">
+      <h2><span class="n">06</span>How we protect it</h2>
+      <p>Your information is encrypted when it travels and when it's stored. Access is limited to the people and services that need it to run Divide. No system is perfectly secure, but we work hard to protect your data and will tell you promptly if a breach affects you.</p>
+    </section>
+
+    <section id="choices">
+      <h2><span class="n">07</span>Your choices and rights</h2>
+      <ul>
+        <li><b>Add cards by hand:</b> you never have to connect a bank account to use Divide.</li>
+        <li><b>Edit or remove cards</b> anytime in the extension.</li>
+        <li><b>Delete everything</b> in Settings, or email us and we'll do it for you.</li>
+        <li><b>Unsubscribe</b> from emails with the link at the bottom of any email.</li>
+        <li><b>Ask for a copy</b> of the information we have about you.</li>
+      </ul>
+      <p>Depending on where you live, including California and other US states, you may have additional rights to know, access, correct, or delete your personal information, and to not be treated differently for using them. We honor these requests for everyone. Email us and we'll respond within 30 days.</p>
+    </section>
+
+    <section id="kids">
+      <h2><span class="n">08</span>Children</h2>
+      <p>Divide is built for adults who manage their own credit cards. It isn't meant for anyone under 18, and we don't knowingly collect information from children. If you think a child has given us information, contact us and we'll delete it.</p>
+    </section>
+
+    <section id="changes">
+      <h2><span class="n">09</span>Changes to this policy</h2>
+      <p>If we change this policy, we'll update the date at the top. If a change is significant, we'll let you know by email or in the extension before it takes effect.</p>
+    </section>
+
+    <section id="contact">
+      <h2><span class="n">10</span>Contact us</h2>
+      <p>Questions, requests, or concerns about your privacy? Email us at <a href="mailto:kimani@dividepay.ai">kimani@dividepay.ai</a>.</p>
+      <p>Divide LLC, United States.</p>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="in">
+    <span>&copy; 2026 Divide LLC. Advice only, Divide never processes payments.</span>
+    <a href="index.html">Back to Divide</a>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const links = [...document.querySelectorAll('.toc a')];
+  const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+  let current = null;
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => {
+      if (e.isIntersecting) {
+        const a = map.get(e.target.id);
+        if (a && a !== current) { if (current) current.classList.remove('on'); a.classList.add('on'); current = a; }
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  document.querySelectorAll('article section').forEach(s => io.observe(s));
+  document.addEventListener('visibilitychange', () => document.body.classList.toggle('paused', document.hidden));
+})();
+</script>
+</body>
+</html>
