@@ -392,6 +392,7 @@ summary .pm::after{transform:rotate(90deg)}
 details[open] summary .pm{transform:rotate(180deg);background:var(--accent)}
 details[open] summary .pm::after{transform:rotate(0)}
 details .ans{color:var(--ink-2);padding:0 48px 22px 0;max-width:60ch}
+details .ans p + p{margin-top:12px}
 
 /* ---------- signup ---------- */
 .signup{overflow:hidden;text-align:center}
@@ -744,7 +745,7 @@ body.pinned .pain .close em::after{transform:scaleX(1)!important;transition:none
         <details><summary>Is Divide free?<span class="pm" aria-hidden="true"></span></summary><p class="ans">Yes. Divide is free to use.</p></details>
         <details><summary>Do I have to link my bank?<span class="pm" aria-hidden="true"></span></summary><p class="ans">No. Divide never connects to your bank. You add each card by hand with just the issuer, last four digits, limit, and balance.</p></details>
         <details><summary>Does Divide see my card number?<span class="pm" aria-hidden="true"></span></summary><p class="ans">Divide is read-only and never stores full card numbers. It never processes a payment. It only tells you which card to use.</p></details>
-        <details><summary>How are scores calculated?<span class="pm" aria-hidden="true"></span></summary><p class="ans">Every card gets a score for the purchase in front of you. Divide weighs the reward rate for that store type, how much of the card's limit you'd be using after you pay, and your available credit. The highest score wins, and the reason is shown right next to it.</p></details>
+        <details><summary>How are scores calculated?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>Every card gets a score for the purchase in front of you. Two things decide it: the reward rate you&rsquo;ve saved for this kind of purchase, and how much of that card&rsquo;s limit you&rsquo;d be using after you pay. Which matters more is up to you. The focus setting in Settings shifts the weight between them, and a goal you set can shift it for you until the goal&rsquo;s end date.</p><p>A card without enough room for the purchase is scored down so far it can&rsquo;t be recommended on its own, though it can still take part of a split. Cards with a foreign transaction fee are scored down when you shop on a site outside the US, and if you&rsquo;ve set a utilization target, cards that would go over it are scored down too. The highest score wins, and the reason is shown next to it.</p></div></details>
         <details><summary>Which cards does it know?<span class="pm" aria-hidden="true"></span></summary><p class="ans">Popular US rewards cards from Chase, American Express, Citi, Capital One, and more, with reward rates checked against each issuer's own pages. New cards are added all the time.</p></details>
         <details><summary>When does it launch, and where?<span class="pm" aria-hidden="true"></span></summary><p class="ans">Divide is in beta now on Chrome. Join the list below and you'll hear the moment it opens to everyone.</p></details>
       </div>
