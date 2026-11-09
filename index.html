@@ -231,6 +231,12 @@ section{position:relative;scroll-margin-top:72px}
 .score{width:28px;height:28px;flex:none;border-radius:50%;display:grid;place-items:center;color:#fff;font:500 11.5px/1 var(--f-mono)}
 .s-hi{background:var(--score-hi)}.s-mid{background:var(--score-mid)}.s-lo{background:var(--score-lo)}
 .swap{transition:opacity .45s var(--ease-out),transform .45s var(--ease-out)}
+.pflag{display:flex;align-items:center;gap:8px;margin:0 0 12px;padding:8px 11px;border-radius:9px;background:#FFF4E2;color:#8A5300;font:700 12.5px/1.3 var(--f-body);box-shadow:inset 0 0 0 1.5px #F2C982}
+.pflag::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--score-mid);box-shadow:0 0 0 4px rgba(217,138,30,.2)}
+.pflag[hidden]{display:none}
+.prec.passover{box-shadow:inset 3px 0 0 var(--score-mid)}
+.orow.top{background:#FFF8EC;box-shadow:inset 0 0 0 1.5px #F2C982}
+.topchip{display:inline-block;margin-left:7px;padding:3px 6px;border-radius:5px;background:#F7DDA8;color:#7A4A00;font:500 9.5px/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;vertical-align:2px}
 .swap.out{opacity:0;transform:translateY(8px)}
 
 /* ---------- how it works ---------- */
@@ -560,10 +566,10 @@ body.pinned .pain .close em::after{transform:scaleX(1)!important;transition:none
         <article class="step">
           <div class="viz" aria-hidden="true">
             <div class="bars">
-              <div><span>Sapphire Preferred</span><span class="sc">91</span><span class="track"><i style="--v:.91"></i></span></div>
-              <div><span>Freedom Unlimited</span><span class="sc">84</span><span class="track"><i style="--v:.84"></i></span></div>
-              <div><span>Amex Gold</span><span class="sc">80</span><span class="track"><i style="--v:.80"></i></span></div>
-              <div><span>Double Cash</span><span class="sc">58</span><span class="track"><i style="--v:.58"></i></span></div>
+              <div><span>Freedom Unlimited</span><span class="sc">90</span><span class="track"><i style="--v:.90"></i></span></div>
+              <div><span>Sapphire Preferred</span><span class="sc">82</span><span class="track"><i style="--v:.82"></i></span></div>
+              <div><span>Quicksilver</span><span class="sc">70</span><span class="track"><i style="--v:.70"></i></span></div>
+              <div><span>Double Cash</span><span class="sc">55</span><span class="track"><i style="--v:.55"></i></span></div>
             </div>
           </div>
           <p class="n">02</p>
@@ -573,8 +579,8 @@ body.pinned .pain .close em::after{transform:scaleX(1)!important;transition:none
         <article class="step">
           <div class="viz" aria-hidden="true">
             <div class="say">
-              <p class="h">Use Sapphire Preferred. 3x on dining, and your balance stays healthy.</p>
-              <p>It sits at 38% of its limit after this dinner.<span class="caret"></span></p>
+              <p class="h">Use Freedom Unlimited. 3% on dining, and it&rsquo;s your emptiest card.</p>
+              <p>It&rsquo;s only 9% used, so this dinner barely moves it.<span class="caret"></span></p>
             </div>
           </div>
           <p class="n">03</p>
@@ -626,7 +632,8 @@ body.pinned .pain .close em::after{transform:scaleX(1)!important;transition:none
               </div>
               <div class="pblock">
                 <div class="phead mint"><span class="wm">div<span class="flip">i</span>de</span><span>recommends:</span></div>
-                <div class="prec swap" data-swap>
+                <div class="prec swap" data-swap data-f="prec">
+                  <p class="pflag" data-f="flag" hidden></p>
                   <div class="pick"><span class="cardart" data-f="art"></span><div><div class="use">You should use</div><div class="cname" data-f="card"></div><div class="last4" data-f="last4"></div></div><span class="score" data-f="score" style="margin-left:auto"></span></div>
                   <p class="headline" data-f="headline"></p>
                   <div class="why"><div class="t"><span>The reason why</span><a href="#faq">How is this calculated?</a></div><p data-f="reason"></p></div>
@@ -655,7 +662,7 @@ body.pinned .pain .close em::after{transform:scaleX(1)!important;transition:none
         <div class="goal-copy">
           <p class="big reveal">Mortgage in six months. Car loan in three. An apartment application next week.</p>
           <p class="reveal">Set the date, and Divide protects your credit until it passes, then goes back to chasing rewards on its own.</p>
-          <p class="aside reveal">Most card tools can&rsquo;t do this. Their revenue depends on you spending and opening new cards. Divide doesn&rsquo;t earn either way.</p>
+          <p class="aside reveal">Most card tools can&rsquo;t do this. Their revenue depends on you spending and opening new cards. No merchant commission or card referral influences what Divide recommends.</p>
         </div>
       </div>
       <div class="timeline io" aria-hidden="true">
@@ -681,9 +688,9 @@ body.pinned .pain .close em::after{transform:scaleX(1)!important;transition:none
           <div class="pblock">
             <div class="phead mint"><span class="wm">div<span class="flip">i</span>de</span><span>recommends:</span></div>
             <div class="ublock">
-              <div class="ucard"><div class="top"><span>Freedom Unlimited<span class="l4">-6743</span></span><span>$760.00</span></div><div class="meta">Utilization 8% to 17%</div><div class="ubar" style="--from:8%;--add:9%"><i></i><b></b></div></div>
-              <div class="ucard"><div class="top"><span>Sapphire Preferred<span class="l4">-4432</span></span><span>$480.00</span></div><div class="meta">Utilization 38% to 41%</div><div class="ubar" style="--from:38%;--add:3%"><i></i><b></b></div></div>
-              <div class="ufacts"><div><b>Low</b><span>credit impact</span></div><div><b>~1,620</b><span>points earned</span></div><div><b>+9</b><span>score vs. one card</span></div></div>
+              <div class="ucard"><div class="top"><span>Freedom Unlimited<span class="l4">-6743</span></span><span>$760.00</span></div><div class="meta">Utilization 9% to 18%</div><div class="ubar" style="--from:9%;--add:9%"><i></i><b></b></div></div>
+              <div class="ucard"><div class="top"><span>Quicksilver<span class="l4">-5521</span></span><span>$480.00</span></div><div class="meta">Utilization 22% to 31%</div><div class="ubar" style="--from:22%;--add:9%"><i></i><b></b></div></div>
+              <div class="ufacts"><div><b>Low</b><span>credit impact</span></div><div><b>$18.60</b><span>cash back</span></div><div><b>+9</b><span>score vs. one card</span></div></div>
             </div>
           </div>
         </div>
@@ -1030,32 +1037,35 @@ body.pinned .pain .close em::after{transform:scaleX(1)!important;transition:none
 
   /* ================= try it ================= */
   const CARDS = {
+    sp: { name: 'Chase Sapphire Preferred', short: 'Sapphire Preferred', l4: '4432', art: 'linear-gradient(135deg,#0E2A5A,#21477F)', label: 'CHASE' },
     fu: { name: 'Chase Freedom Unlimited', short: 'Freedom Unlimited', l4: '6743', art: 'linear-gradient(135deg,#1E3F8F,#2B5CC9)', label: 'CHASE' },
     dc: { name: 'Citi Double Cash', short: 'Citi Double Cash', l4: '9876', art: 'linear-gradient(135deg,#8E1E26,#C2343F)', label: 'CITI' },
-    ag: { name: 'Amex Gold', short: 'Amex Gold', l4: '2460', art: 'linear-gradient(135deg,#9C7A3C,#D8B66A)', label: 'AMEX' },
-    sp: { name: 'Chase Sapphire Preferred', short: 'Sapphire Preferred', l4: '4432', art: 'linear-gradient(135deg,#0E2A5A,#21477F)', label: 'CHASE' }
+    qs: { name: 'Capital One Quicksilver', short: 'Quicksilver', l4: '5521', art: 'linear-gradient(135deg,#3A3F45,#6B737C)', label: 'CAPITAL ONE' }
   };
+  // Sample wallet, identical in every scenario:
+  // Sapphire Preferred 3x dining / 1x else, 41% used. Freedom Unlimited 3% dining / 1.5% else, 9% used.
+  // Double Cash 2% / 2%, 68% used. Quicksilver 1.5% / 1.5%, 22% used.
   const SCEN = {
     dinner: {
-      merchant: 'Olive & Ember', logo: ['O', '#B5532F'], cat: 'dining', mult: '3x', amount: '$48.20',
-      win: 'sp', score: 91,
-      headline: '3x on dining, and your balance stays healthy.',
-      reason: 'Chase Sapphire Preferred earns <b>3x at restaurants</b>. After this dinner it sits at <b>38%</b> of its limit, well inside a healthy range.',
-      others: [['fu', 84, '3x dining, 9% used after'], ['ag', 80, '4x dining, charge card'], ['dc', 58, '2x on everything, 64% used']]
+      merchant: 'Olive & Ember', logo: ['O', '#B5532F'], cat: 'dining', mult: '3%', amount: '$48.20',
+      win: 'fu', score: 90,
+      headline: "3% on dining, and it\u2019s your emptiest card.",
+      reason: "Freedom Unlimited earns <b>3% at restaurants</b>, same as Sapphire Preferred. It\u2019s only <b>9% used</b>, so this dinner barely moves it.",
+      others: [['sp', 82, '3x dining, but 41% used'], ['qs', 70, '1.5% here, 22% used'], ['dc', 55, '2% here, 68% used']]
     },
     clothing: {
-      merchant: 'Juniper & Co.', logo: ['J', '#2E6B5A'], cat: 'clothing', mult: '1.5x', amount: '$53.75',
-      win: 'fu', score: 88,
-      headline: 'Your balance is low, and using it protects your credit.',
-      reason: 'Citi Double Cash earns a little more, but it is already using <b>64%</b> of its limit. Freedom Unlimited earns <b>1.5x</b> and stays at <b>9%</b>.',
-      others: [['ag', 67, '1x here, charge card'], ['dc', 61, '2x, but 64% used'], ['sp', 55, '1x here, 38% used']]
+      merchant: 'Juniper & Co.', logo: ['J', '#2E6B5A'], cat: 'shopping', mult: '1.5%', amount: '$53.75',
+      win: 'qs', score: 81, flag: 'Not the top earner. Picked on purpose.',
+      headline: 'Not your best earner. Your best choice.',
+      reason: "Citi Double Cash earns more here (<b>2% vs 1.5%</b>), but it\u2019s already at <b>68%</b> and this would push it higher. Quicksilver stays at <b>23%</b>.",
+      others: [['fu', 76, '1.5% here, 9% used'], ['dc', 63, '2% here, but 68% used', 'top earner'], ['sp', 52, '1x here, 41% used']]
     },
     streaming: {
-      merchant: 'Lumen TV', logo: ['L', '#4B3A8F'], cat: 'streaming', mult: '3x', amount: '$15.49',
-      win: 'sp', score: 82,
-      headline: '3x on streaming, and a charge this small barely moves your balance.',
-      reason: 'Sapphire Preferred earns <b>3x on streaming</b>. At $15.49, its utilization stays at <b>38%</b>, so you take the extra points.',
-      others: [['dc', 72, '2x on everything'], ['fu', 70, '1.5x here, 8% used'], ['ag', 61, '1x here']]
+      merchant: 'Lumen TV', logo: ['L', '#4B3A8F'], cat: 'streaming', mult: '2%', amount: '$15.49',
+      win: 'dc', score: 84,
+      headline: 'Small enough that rewards win.',
+      reason: "Double Cash earns the most here at <b>2%</b>. It\u2019s at <b>68%</b>, but $15.49 moves that by less than half a point. Not enough to matter.",
+      others: [['fu', 78, '1.5% here, 9% used'], ['qs', 72, '1.5% here, 22% used'], ['sp', 60, '1x here, 41% used']]
     }
   };
   const demo = $('#demo');
@@ -1070,11 +1080,13 @@ body.pinned .pain .close em::after{transform:scaleX(1)!important;transition:none
     F('art').style.background = c.art; F('art').textContent = c.label;
     F('card').textContent = c.name; F('last4').textContent = 'ending in -' + c.l4;
     F('score').textContent = s.score; F('score').className = 'score ' + sc(s.score);
+    F('flag').hidden = !s.flag; F('flag').textContent = s.flag || '';
+    F('prec').classList.toggle('passover', !!s.flag);
     F('headline').textContent = s.headline;
     F('reason').innerHTML = s.reason;
     const ap = F('apply'); ap.classList.remove('done'); ap.textContent = 'yes! apply this recommendation.';
-    F('others').innerHTML = s.others.map(([id, score, note]) =>
-      '<div class="orow"><span class="score ' + sc(score) + '">' + score + '</span><span>' + CARDS[id].short + ' <span class="l4">-' + CARDS[id].l4 + '</span></span><span class="note">' + note + '</span></div>'
+    F('others').innerHTML = s.others.map(([id, score, note, top]) =>
+      '<div class="orow' + (top ? ' top' : '') + '"><span class="score ' + sc(score) + '">' + score + '</span><span>' + CARDS[id].short + ' <span class="l4">-' + CARDS[id].l4 + '</span>' + (top ? '<span class="topchip">' + top + '</span>' : '') + '</span><span class="note">' + note + '</span></div>'
     ).join('');
   }
   let swapping = null;
