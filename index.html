@@ -234,6 +234,10 @@ section{position:relative;scroll-margin-top:72px}
 .pflag{display:flex;align-items:center;gap:8px;margin:0 0 12px;padding:8px 11px;border-radius:9px;background:#FFF4E2;color:#8A5300;font:700 12.5px/1.3 var(--f-body);box-shadow:inset 0 0 0 1.5px #F2C982}
 .pflag::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--score-mid);box-shadow:0 0 0 4px rgba(217,138,30,.2)}
 .pflag[hidden]{display:none}
+.psplit{display:grid;gap:8px}
+.psplit[hidden],.pick[hidden],.detail[hidden]{display:none}
+.ubar.on b{width:var(--add)}
+.prec .detail{font:400 13.5px/1.5 var(--f-body);color:var(--ink);text-align:center;margin-top:8px;text-wrap:balance}
 .prec.passover{box-shadow:inset 3px 0 0 var(--score-mid)}
 .orow.top{background:#FFF8EC;box-shadow:inset 0 0 0 1.5px #F2C982}
 .topchip{display:inline-block;margin-left:7px;padding:3px 6px;border-radius:5px;background:#F7DDA8;color:#7A4A00;font:500 9.5px/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;vertical-align:2px}
@@ -596,7 +600,7 @@ body.pinned .pain .close em::after{transform:scaleX(1)!important;transition:none
       <div class="io">
         <span class="kicker reveal"><svg class="fork" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2v8M12 10l-6 6M12 10v12M12 10l6 6" stroke="#3FD3A8" stroke-width="2" stroke-linecap="round" style="--len:40"/></svg>Try it</span>
         <h2 class="h2 reveal" id="try-h">Pick a checkout. Watch Divide decide.</h2>
-        <p class="lede reveal">Same wallet, three different purchases. The right card changes every time.</p>
+        <p class="lede reveal">Three purchases. Three different answers.</p>
       </div>
       <div class="try-grid">
         <div>
@@ -611,10 +615,10 @@ body.pinned .pain .close em::after{transform:scaleX(1)!important;transition:none
               <span><span class="what">New running gear</span><span class="where">Juniper &amp; Co.</span></span>
               <span class="amt">$53.75</span>
             </button>
-            <button class="pickbtn" type="button" data-pick="streaming" aria-pressed="false">
-              <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="m10 8.5 4.5 2.5-4.5 2.5v-5ZM8 21h8"/></svg></span>
-              <span><span class="what">Streaming plan</span><span class="where">Lumen TV</span></span>
-              <span class="amt">$15.49</span>
+            <button class="pickbtn" type="button" data-pick="laptop" aria-pressed="false">
+              <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></svg></span>
+              <span><span class="what">New laptop</span><span class="where">Northgate Supply</span></span>
+              <span class="amt">$1,340.00</span>
             </button>
           </div>
           <p class="hint">Sample wallet: four popular rewards cards with real reward rates.</p>
@@ -634,8 +638,10 @@ body.pinned .pain .close em::after{transform:scaleX(1)!important;transition:none
                 <div class="phead mint"><span class="wm">div<span class="flip">i</span>de</span><span>recommends:</span></div>
                 <div class="prec swap" data-swap data-f="prec">
                   <p class="pflag" data-f="flag" hidden></p>
-                  <div class="pick"><span class="cardart" data-f="art"></span><div><div class="use">You should use</div><div class="cname" data-f="card"></div><div class="last4" data-f="last4"></div></div><span class="score" data-f="score" style="margin-left:auto"></span></div>
+                  <div class="pick" data-f="pick"><span class="cardart" data-f="art"></span><div><div class="use">You should use</div><div class="cname" data-f="card"></div><div class="last4" data-f="last4"></div></div><span class="score" data-f="score" style="margin-left:auto"></span></div>
+                  <div class="psplit" data-f="split" hidden></div>
                   <p class="headline" data-f="headline"></p>
+                  <p class="detail" data-f="detail" hidden></p>
                   <div class="why"><div class="t"><span>The reason why</span><a href="#faq">How is this calculated?</a></div><p data-f="reason"></p></div>
                   <button class="apply" type="button" data-f="apply">yes! apply this recommendation.</button>
                   <div class="links"><span>show more options</span><span>split across cards</span></div>
@@ -683,14 +689,14 @@ body.pinned .pain .close em::after{transform:scaleX(1)!important;transition:none
         <div class="panel-body">
           <div class="pblock">
             <div class="phead">split purchase</div>
-            <div class="pmerch"><div class="who"><span class="mlogo" style="background:#7A5C3E">N</span><div class="name">Northline Home</div></div><div class="amount">$1,240</div></div>
+            <div class="pmerch"><div class="who"><span class="mlogo" style="background:#3D5A80">N</span><div class="name">Northgate Supply</div></div><div class="amount">$1,340</div></div>
           </div>
           <div class="pblock">
             <div class="phead mint"><span class="wm">div<span class="flip">i</span>de</span><span>recommends:</span></div>
             <div class="ublock">
-              <div class="ucard"><div class="top"><span>Freedom Unlimited<span class="l4">-6743</span></span><span>$760.00</span></div><div class="meta">Utilization 9% to 18%</div><div class="ubar" style="--from:9%;--add:9%"><i></i><b></b></div></div>
-              <div class="ucard"><div class="top"><span>Quicksilver<span class="l4">-5521</span></span><span>$480.00</span></div><div class="meta">Utilization 22% to 31%</div><div class="ubar" style="--from:22%;--add:9%"><i></i><b></b></div></div>
-              <div class="ufacts"><div><b>Low</b><span>credit impact</span></div><div><b>$18.60</b><span>cash back</span></div><div><b>+9</b><span>score vs. one card</span></div></div>
+              <div class="ucard"><div class="top"><span>Freedom Unlimited<span class="l4">-6743</span></span><span>$890.00</span></div><div class="meta">Utilization 9% to 34%</div><div class="ubar" style="--from:9%;--add:25%"><i></i><b></b></div></div>
+              <div class="ucard"><div class="top"><span>Quicksilver<span class="l4">-5521</span></span><span>$450.00</span></div><div class="meta">Utilization 22% to 35%</div><div class="ubar" style="--from:22%;--add:13%"><i></i><b></b></div></div>
+              <div class="ufacts"><div><b>Low</b><span>credit impact</span></div><div><b>$20.10</b><span>cash back</span></div><div><b>+9</b><span>score vs. one card</span></div></div>
             </div>
           </div>
         </div>
@@ -1042,7 +1048,7 @@ body.pinned .pain .close em::after{transform:scaleX(1)!important;transition:none
     dc: { name: 'Citi Double Cash', short: 'Citi Double Cash', l4: '9876', art: 'linear-gradient(135deg,#8E1E26,#C2343F)', label: 'CITI' },
     qs: { name: 'Capital One Quicksilver', short: 'Quicksilver', l4: '5521', art: 'linear-gradient(135deg,#3A3F45,#6B737C)', label: 'CAPITAL ONE' }
   };
-  // Sample wallet, identical in every scenario:
+  // Sample wallet, identical in every scenario (limits: Sapphire $10,000, Freedom $3,500, Double Cash $5,000, Quicksilver $3,500):
   // Sapphire Preferred 3x dining / 1x else, 41% used. Freedom Unlimited 3% dining / 1.5% else, 9% used.
   // Double Cash 2% / 2%, 68% used. Quicksilver 1.5% / 1.5%, 22% used.
   const SCEN = {
@@ -1055,36 +1061,42 @@ body.pinned .pain .close em::after{transform:scaleX(1)!important;transition:none
     },
     clothing: {
       merchant: 'Juniper & Co.', logo: ['J', '#2E6B5A'], cat: 'shopping', mult: '1.5%', amount: '$53.75',
-      win: 'qs', score: 81, flag: 'Not the top earner. Picked on purpose.',
+      win: 'fu', score: 84, flag: 'Not the top earner. Picked on purpose.',
       headline: 'Not your best earner. Your best choice.',
-      reason: "Citi Double Cash earns more here (<b>2% vs 1.5%</b>), but it\u2019s already at <b>68%</b> and this would push it higher. Quicksilver stays at <b>23%</b>.",
-      others: [['fu', 76, '1.5% here, 9% used'], ['dc', 63, '2% here, but 68% used', 'top earner'], ['sp', 52, '1x here, 41% used']]
+      reason: "Citi Double Cash earns more here (<b>2% vs 1.5%</b>), but it\u2019s already at <b>68%</b> and this would push it higher. Freedom Unlimited stays at <b>11%</b>.",
+      others: [['qs', 78, '1.5% here, 22% used'], ['dc', 63, '2% here, but 68% used', 'top earner'], ['sp', 52, '1x here, 41% used']]
     },
-    streaming: {
-      merchant: 'Lumen TV', logo: ['L', '#4B3A8F'], cat: 'streaming', mult: '2%', amount: '$15.49',
-      win: 'dc', score: 84,
-      headline: 'Small enough that rewards win.',
-      reason: "Double Cash earns the most here at <b>2%</b>. It\u2019s at <b>68%</b>, but $15.49 moves that by less than half a point. Not enough to matter.",
-      others: [['fu', 78, '1.5% here, 9% used'], ['qs', 72, '1.5% here, 22% used'], ['sp', 60, '1x here, 41% used']]
+    laptop: {
+      merchant: 'Northgate Supply', logo: ['N', '#3D5A80'], cat: 'electronics', mult: '1.5%', amount: '$1,340.00',
+      split: [['fu', '$890.00', 9, 34], ['qs', '$450.00', 22, 35]],
+      headline: "Too big for one card. Here\u2019s the split.",
+      detail: '$890 on Freedom Unlimited and $450 on Quicksilver. Neither card goes above 35%, and you still earn 1.5% on the whole thing.',
+      reason: 'Putting all $1,340 on one card would push even your emptiest card to <b>47%</b>. Split across two, both stay comfortable.',
+      others: [['fu', 74, 'All on one card: 9% to 47%'], ['qs', 58, 'All on one card: 22% to 60%'], ['dc', 31, 'All on one card: 68% to 95%']]
     }
   };
   const demo = $('#demo');
   const F = n => demo.querySelector('[data-f="' + n + '"]');
   const sc = s => s >= 80 ? 's-hi' : s >= 60 ? 's-mid' : 's-lo';
   function fill(key) {
-    const s = SCEN[key], c = CARDS[s.win];
+    const s = SCEN[key], c = CARDS[s.win || 'fu'];
+    F('pick').hidden = !!s.split; F('split').hidden = !s.split;
+    F('split').innerHTML = s.split ? s.split.map(([id, amt, from, to]) =>
+      '<div class="ucard"><div class="top"><span>' + CARDS[id].short + '<span class="l4">-' + CARDS[id].l4 + '</span></span><span>' + amt + '</span></div><div class="meta">Utilization ' + from + '% to ' + to + '%</div><div class="ubar on" style="--from:' + from + '%;--add:' + (to - from) + '%"><i></i><b></b></div></div>'
+    ).join('') : '';
+    F('detail').hidden = !s.detail; F('detail').textContent = s.detail || '';
     F('mlogo').textContent = s.logo[0]; F('mlogo').style.background = s.logo[1];
     F('merchant').textContent = s.merchant;
     F('cat').textContent = s.cat; F('mult').textContent = s.mult;
     F('amount').textContent = s.amount;
     F('art').style.background = c.art; F('art').textContent = c.label;
     F('card').textContent = c.name; F('last4').textContent = 'ending in -' + c.l4;
-    F('score').textContent = s.score; F('score').className = 'score ' + sc(s.score);
+    if (!s.split) { F('score').textContent = s.score; F('score').className = 'score ' + sc(s.score); }
     F('flag').hidden = !s.flag; F('flag').textContent = s.flag || '';
     F('prec').classList.toggle('passover', !!s.flag);
     F('headline').textContent = s.headline;
     F('reason').innerHTML = s.reason;
-    const ap = F('apply'); ap.classList.remove('done'); ap.textContent = 'yes! apply this recommendation.';
+    const ap = F('apply'); ap.classList.remove('done'); ap.textContent = s.split ? 'apply this split' : 'yes! apply this recommendation.';
     F('others').innerHTML = s.others.map(([id, score, note, top]) =>
       '<div class="orow' + (top ? ' top' : '') + '"><span class="score ' + sc(score) + '">' + score + '</span><span>' + CARDS[id].short + ' <span class="l4">-' + CARDS[id].l4 + '</span>' + (top ? '<span class="topchip">' + top + '</span>' : '') + '</span><span class="note">' + note + '</span></div>'
     ).join('');
