@@ -205,6 +205,7 @@ section{position:relative;scroll-margin-top:72px}
 .tag{display:inline-flex;align-items:center;margin-top:5px;font:500 10px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--forest);background:#E3F6EF;border-radius:6px;overflow:hidden}
 .tag span{padding:5px 7px}
 .tag b{background:var(--accent);color:var(--forest);padding:5px 7px;font-weight:500}
+.tag.is-other span{display:none}
 .amount{font:800 30px/1 var(--f-display);color:var(--forest);letter-spacing:-.02em;text-align:right}
 .amount small{display:block;font:400 11px/1.4 var(--f-body);color:var(--ink-2);letter-spacing:0;margin-top:4px}
 .prec{padding:14px}
@@ -578,10 +579,10 @@ body.pinned .pain .close em::after{transform:scaleX(1)!important;transition:none
         <article class="step">
           <div class="viz" aria-hidden="true">
             <div class="bars">
-              <div><span>Freedom Unlimited</span><span class="sc">90</span><span class="track"><i style="--v:.90"></i></span></div>
+              <div><span>Freedom Unlimited</span><span class="sc">89</span><span class="track"><i style="--v:.89"></i></span></div>
               <div><span>Sapphire Preferred</span><span class="sc">82</span><span class="track"><i style="--v:.82"></i></span></div>
-              <div><span>Quicksilver</span><span class="sc">70</span><span class="track"><i style="--v:.70"></i></span></div>
-              <div><span>Double Cash</span><span class="sc">55</span><span class="track"><i style="--v:.55"></i></span></div>
+              <div><span>Quicksilver</span><span class="sc">67</span><span class="track"><i style="--v:.67"></i></span></div>
+              <div><span>Double Cash</span><span class="sc">62</span><span class="track"><i style="--v:.62"></i></span></div>
             </div>
           </div>
           <p class="n">02</p>
@@ -625,7 +626,7 @@ body.pinned .pain .close em::after{transform:scaleX(1)!important;transition:none
             </button>
             <button class="pickbtn" type="button" data-pick="laptop" aria-pressed="false">
               <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></svg></span>
-              <span><span class="what">New laptop</span><span class="where">Northgate Supply</span></span>
+              <span><span class="what">New laptop</span><span class="where">Target</span></span>
               <span class="amt">$1,340.00</span>
             </button>
           </div>
@@ -710,7 +711,7 @@ body.pinned .pain .close em::after{transform:scaleX(1)!important;transition:none
         </div>
         <div class="cc-row">
           <span class="cc-ico" aria-hidden="true"><svg viewBox="0 0 32 24" fill="none" stroke-width="1.8" stroke-linejoin="round"><rect x="6" y="5" width="20" height="14" rx="2.5" stroke="#1F5E4F" fill="#E3F6EF"/></svg></span>
-          <p>Where a merchant only takes one, Divide says so and recommends the best single card instead.</p>
+          <p>Where a merchant only takes one, Divide says so and recommends the best single card instead. At a few stores that sell their own gift cards, it can also show you how to cover part of the order with a gift card bought on another card.</p>
         </div>
         <p class="cc-promise">It won&rsquo;t suggest something you can&rsquo;t actually do.</p>
         <p class="cc-foot">Divide never touches the payment. You enter the numbers.</p>
@@ -1052,31 +1053,32 @@ body.pinned .pain .close em::after{transform:scaleX(1)!important;transition:none
     dc: { name: 'Citi Double Cash', short: 'Citi Double Cash', l4: '9876', art: 'linear-gradient(135deg,#8E1E26,#C2343F)', label: 'CITI' },
     qs: { name: 'Capital One Quicksilver', short: 'Quicksilver', l4: '5521', art: 'linear-gradient(135deg,#3A3F45,#6B737C)', label: 'CAPITAL ONE' }
   };
-  // Sample wallet, identical in every scenario (limits: Sapphire $10,000, Freedom $3,500, Double Cash $5,000, Quicksilver $3,500):
+  // Sample wallet, identical in every scenario. Scores are the real engine's output (scoring.ts, default prefs) for this wallet.
+  // Limits: Sapphire $5,000 @41%, Freedom $4,000 @9%, Double Cash $5,000 @68%, Quicksilver $4,100 @25%.
   // Sapphire Preferred 3x dining / 1x else, 41% used. Freedom Unlimited 3% dining / 1.5% else, 9% used.
-  // Double Cash 2% / 2%, 68% used. Quicksilver 1.5% / 1.5%, 22% used.
+  // Double Cash 2% / 2%, 68% used. Quicksilver 1.5% / 1.5%, 25% used.
   const SCEN = {
     dinner: {
       merchant: 'Olive & Ember', logo: ['O', '#B5532F'], cat: 'dining', mult: '3%', amount: '$48.20',
-      win: 'fu', score: 90,
+      win: 'fu', score: 89,
       headline: "3% on dining, and it\u2019s your emptiest card.",
       reason: "Freedom Unlimited earns <b>3% at restaurants</b>, same as Sapphire Preferred. It\u2019s only <b>9% used</b>, so this dinner barely moves it.",
-      others: [['sp', 82, '3x dining, but 41% used'], ['qs', 70, '1.5% here, 22% used'], ['dc', 55, '2% here, 68% used']]
+      others: [['sp', 82, '3x dining, but 41% used'], ['qs', 67, '1.5% here, 25% used'], ['dc', 62, '2% here, 68% used']]
     },
     clothing: {
       merchant: 'Juniper & Co.', logo: ['J', '#2E6B5A'], cat: 'other', mult: '1.5%', amount: '$53.75',
-      win: 'fu', score: 84, flag: 'Not the top earner. Picked on purpose.',
+      win: 'fu', score: 67, flag: 'Not the top earner. Picked on purpose.',
       headline: 'Not your best earner. Your best choice.',
-      reason: "Citi Double Cash earns more here (<b>2% vs 1.5%</b>), but it\u2019s already at <b>68%</b> and this would push it higher. Freedom Unlimited stays at <b>11%</b>.",
-      others: [['qs', 78, '1.5% here, 22% used'], ['dc', 63, '2% here, but 68% used', 'top earner'], ['sp', 52, '1x here, 41% used']]
+      reason: "Citi Double Cash earns more here (<b>2% vs 1.5%</b>), but it\u2019s already at <b>68%</b> and this would push it higher. Freedom Unlimited stays at <b>10%</b>.",
+      others: [['qs', 67, 'Tied on rewards. Freedom is emptier.'], ['dc', 62, '2% here, but 68% used', 'top earner'], ['sp', 60, '1x here, 41% used']]
     },
     laptop: {
-      merchant: 'Northgate Supply', logo: ['N', '#3D5A80'], cat: 'other', mult: '1.5%', amount: '$1,340.00',
-      split: [['fu', '$890.00', 9, 34], ['qs', '$450.00', 22, 35]],
+      merchant: 'Target', logo: ['T', '#4A4F57'], cat: 'other', mult: '1.5%', amount: '$1,340.00',
+      split: [['fu', '$938.00', 9, 32], ['qs', '$402.00', 25, 35]],
       headline: "Too big for one card. Here\u2019s the split.",
-      detail: '$890 on Freedom Unlimited and $450 on Quicksilver. Neither card goes above 35%, and you still earn 1.5% on the whole thing.',
-      reason: 'Putting all $1,340 on one card would push even your emptiest card to <b>47%</b>. Split across two, both stay comfortable.',
-      others: [['fu', 74, 'All on one card: 9% to 47%'], ['qs', 58, 'All on one card: 22% to 60%'], ['dc', 31, 'All on one card: 68% to 95%']]
+      detail: '$938 on Freedom Unlimited and $402 on Quicksilver. Neither card goes above 35%, and you still earn 1.5% on the whole thing.',
+      reason: 'Putting all $1,340 on one card would push even your emptiest card to <b>43%</b>. Split across two, both stay comfortable.',
+      others: [['fu', 60, 'All on one card: 9% to 43%'], ['qs', 54, 'All on one card: 25% to 58%'], ['dc', 51, 'All on one card: 68% to 95%'], ['sp', 49, 'All on one card: 41% to 68%']]
     }
   };
   const demo = $('#demo');
@@ -1092,10 +1094,12 @@ body.pinned .pain .close em::after{transform:scaleX(1)!important;transition:none
     F('mlogo').textContent = s.logo[0]; F('mlogo').style.background = s.logo[1];
     F('merchant').textContent = s.merchant;
     F('cat').textContent = s.cat; F('mult').textContent = s.mult;
+    F('cat').parentElement.classList.toggle('is-other', s.cat === 'other');
     F('amount').textContent = s.amount;
     F('art').style.background = c.art; F('art').textContent = c.label;
     F('card').textContent = c.name; F('last4').textContent = 'ending in -' + c.l4;
-    if (!s.split) { F('score').textContent = s.score; F('score').className = 'score ' + sc(s.score); }
+    // Demo only: the recommended card always gets the brand-green ring; the number shown is the engine's real score.
+    if (!s.split) { F('score').textContent = s.score; F('score').className = 'score s-hi'; }
     F('flag').hidden = !s.flag; F('flag').textContent = s.flag || '';
     F('prec').classList.toggle('passover', !!s.flag);
     F('headline').textContent = s.headline;
