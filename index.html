@@ -296,6 +296,34 @@ section{position:relative;scroll-margin-top:72px}
 @keyframes breathe{50%{opacity:1}}
 .try .panel{position:relative}
 
+/* ---------- credit goal ---------- */
+.goal-top{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,6vw,96px);align-items:end}
+.goal .h2{max-width:13ch}
+.goal-copy p{color:var(--ink-2);margin-top:16px;max-width:46ch}
+.goal-copy p.big{font:700 clamp(20px,1.9vw,26px)/1.35 var(--f-display);letter-spacing:-.01em;color:var(--forest);margin-top:0}
+.goal-copy p.aside{border-left:3px solid var(--accent);padding-left:16px;color:var(--ink)}
+.timeline{margin-top:64px;background:var(--panel);border-radius:22px;padding:30px clamp(20px,4vw,44px) 28px;box-shadow:var(--shadow)}
+.tl-marks{position:relative;height:34px;font:500 12px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+.tl-marks span{position:absolute;bottom:12px}
+.tl-now{left:0}
+.tl-flag{left:62%;transform:translateX(-50%);color:var(--forest);white-space:nowrap}
+.tl-track{position:relative;height:12px;border-radius:8px;background:rgba(31,94,79,.1)}
+.tl-protect,.tl-rewards{position:absolute;top:0;bottom:0;transform:scaleX(0);transform-origin:left}
+.tl-protect{left:0;width:62%;border-radius:8px 0 0 8px;background:linear-gradient(90deg,#9BE9D1,var(--accent));transition:transform 1.6s var(--ease-out) .2s}
+.tl-rewards{left:62%;right:0;border-radius:0 8px 8px 0;background:var(--forest);transition:transform 1.1s var(--ease-out) 1.5s}
+.timeline.in .tl-protect,.timeline.in .tl-rewards{transform:scaleX(1)}
+.tl-dot{position:absolute;left:0;top:50%;width:18px;height:18px;margin:-9px 0 0 -2px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px var(--accent-muted)}
+.live .tl-dot{animation:ping 2.8s var(--ease-out) infinite;animation-delay:-.8s}
+.tl-pin{position:absolute;left:62%;top:50%;width:4px;height:34px;margin:-17px 0 0 -2px;border-radius:3px;background:var(--forest);opacity:0;transform:scaleY(.3);transition:opacity .6s var(--ease-out) 1.4s,transform .6s var(--ease-out) 1.4s}
+.timeline.in .tl-pin{opacity:1;transform:none}
+.tl-labels{display:grid;grid-template-columns:62% 38%;margin-top:18px}
+.tl-labels div{padding-right:16px}
+.tl-labels div + div{padding-left:16px;padding-right:0}
+.tl-labels b{display:block;font:700 17px/1.3 var(--f-display);color:var(--ink)}
+.tl-labels span{display:block;font-size:14.5px;color:var(--ink-2);margin-top:4px}
+@media (max-width:860px){.goal-top{grid-template-columns:1fr}.goal-copy{margin-top:8px}}
+@media (max-width:560px){.tl-labels{grid-template-columns:1fr 1fr}.tl-labels b{font-size:15px}.tl-flag{left:auto;right:0;transform:none}}
+
 /* ---------- split ---------- */
 .split-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,96px);align-items:center}
 .split-copy .h2{max-width:14ch}
@@ -421,12 +449,16 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   .fork path,.steps .thread path,.thanks .tick path{stroke-dashoffset:0!important}
   .bars .track i{transform:scaleX(var(--v))!important}
   .ubar b{width:var(--add)!important}
+  .tl-protect,.tl-rewards{transform:scaleX(1)!important}
+  .tl-pin{opacity:1!important;transform:none!important}
   .pain .close em::after{transform:scaleX(1)!important}
 }
 body.pinned .reveal,body.pinned .bubble,body.pinned .steps .step{opacity:1!important;transform:none!important;transition:none!important}
 body.pinned .fork path,body.pinned .steps .thread path{stroke-dashoffset:0!important;transition:none!important}
 body.pinned .bars .track i{transform:scaleX(var(--v))!important;transition:none!important}
 body.pinned .ubar b{width:var(--add)!important;transition:none!important}
+body.pinned .tl-protect,body.pinned .tl-rewards{transform:scaleX(1)!important;transition:none!important}
+body.pinned .tl-pin{opacity:1!important;transform:none!important;transition:none!important}
 body.pinned .pain .close em::after{transform:scaleX(1)!important;transition:none!important}
 </style>
 </head>
@@ -528,20 +560,20 @@ body.pinned .pain .close em::after{transform:scaleX(1)!important;transition:none
         <article class="step">
           <div class="viz" aria-hidden="true">
             <div class="bars">
-              <div><span>Amex Gold</span><span class="sc">91</span><span class="track"><i style="--v:.91"></i></span></div>
+              <div><span>Sapphire Preferred</span><span class="sc">91</span><span class="track"><i style="--v:.91"></i></span></div>
               <div><span>Freedom Unlimited</span><span class="sc">84</span><span class="track"><i style="--v:.84"></i></span></div>
-              <div><span>Sapphire Preferred</span><span class="sc">63</span><span class="track"><i style="--v:.63"></i></span></div>
+              <div><span>Amex Gold</span><span class="sc">80</span><span class="track"><i style="--v:.80"></i></span></div>
               <div><span>Double Cash</span><span class="sc">58</span><span class="track"><i style="--v:.58"></i></span></div>
             </div>
           </div>
           <p class="n">02</p>
           <h3>Scores every card</h3>
-          <p>Each card gets a score for this exact purchase: rewards, how much of its limit you're using, and the store type.</p>
+          <p>Each card gets a score for this exact purchase from two things: the rewards it earns here and how much of its limit you're using.</p>
         </article>
         <article class="step">
           <div class="viz" aria-hidden="true">
             <div class="say">
-              <p class="h">Use Amex Gold. 4x on dining, and your balance stays healthy.</p>
+              <p class="h">Use Sapphire Preferred. 3x on dining, and your balance stays healthy.</p>
               <p>It sits at 38% of its limit after this dinner.<span class="caret"></span></p>
             </div>
           </div>
@@ -613,6 +645,30 @@ body.pinned .pain .close em::after{transform:scaleX(1)!important;transition:none
     </div>
   </section>
 
+  <section class="goal sec-pad" id="goal" aria-labelledby="goal-h">
+    <div class="wrap">
+      <div class="goal-top io">
+        <div>
+          <span class="kicker reveal"><svg class="fork" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2v8M12 10l-6 6M12 10v12M12 10l6 6" stroke="#1F5E4F" stroke-width="2" stroke-linecap="round" style="--len:40"/></svg>Before a big application</span>
+          <h2 class="h2 reveal" id="goal-h">Something big coming? Tell Divide.</h2>
+        </div>
+        <div class="goal-copy">
+          <p class="big reveal">Mortgage in six months. Car loan in three. An apartment application next week.</p>
+          <p class="reveal">Set the date, and Divide protects your credit until it passes, then goes back to chasing rewards on its own.</p>
+          <p class="aside reveal">Most card tools can&rsquo;t do this. Their revenue depends on you spending and opening new cards. Divide doesn&rsquo;t earn either way.</p>
+        </div>
+      </div>
+      <div class="timeline io" aria-hidden="true">
+        <div class="tl-marks"><span class="tl-now">Today</span><span class="tl-flag">Application day</span></div>
+        <div class="tl-track"><i class="tl-protect"></i><i class="tl-rewards"></i><b class="tl-dot"></b><b class="tl-pin"></b></div>
+        <div class="tl-labels">
+          <div><b>Protecting your credit</b><span>Low-balance cards come first</span></div>
+          <div><b>Back to chasing rewards</b><span>Automatically</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="split sec-pad io" aria-labelledby="split-h">
     <div class="wrap split-grid">
       <div class="panel reveal" aria-hidden="true">
@@ -626,7 +682,7 @@ body.pinned .pain .close em::after{transform:scaleX(1)!important;transition:none
             <div class="phead mint"><span class="wm">div<span class="flip">i</span>de</span><span>recommends:</span></div>
             <div class="ublock">
               <div class="ucard"><div class="top"><span>Freedom Unlimited<span class="l4">-6743</span></span><span>$760.00</span></div><div class="meta">Utilization 8% to 17%</div><div class="ubar" style="--from:8%;--add:9%"><i></i><b></b></div></div>
-              <div class="ucard"><div class="top"><span>Amex Gold<span class="l4">-2460</span></span><span>$480.00</span></div><div class="meta">Utilization 38% to 41%</div><div class="ubar" style="--from:38%;--add:3%"><i></i><b></b></div></div>
+              <div class="ucard"><div class="top"><span>Sapphire Preferred<span class="l4">-4432</span></span><span>$480.00</span></div><div class="meta">Utilization 38% to 41%</div><div class="ubar" style="--from:38%;--add:3%"><i></i><b></b></div></div>
               <div class="ufacts"><div><b>Low</b><span>credit impact</span></div><div><b>~1,620</b><span>points earned</span></div><div><b>+9</b><span>score vs. one card</span></div></div>
             </div>
           </div>
@@ -736,7 +792,7 @@ body.pinned .pain .close em::after{transform:scaleX(1)!important;transition:none
   const KLAVIYO_LIST_ID = 'Wi8Aeb';
   const VIDEO_URL = 'assets/hero-scrub.mp4';
   const POSTER_URL = 'assets/hero-poster.jpg';
-  const VIDEO_BYTES = 3661330; // real encoded size, fallback when Content-Length is missing
+  const VIDEO_BYTES = 5292512; // real encoded size, fallback when Content-Length is missing
 
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -829,6 +885,7 @@ body.pinned .pain .close em::after{transform:scaleX(1)!important;transition:none
   function requestSeek(t) {
     if (!video.duration || !isFinite(video.duration)) return;
     if (seekBusy) { pendingTime = t; return; }
+    if (Math.abs(t - video.currentTime) < 0.012) return; // under a third of a frame: nothing to show
     seekBusy = true;
     video.currentTime = t;
   }
@@ -842,7 +899,7 @@ body.pinned .pain .close em::after{transform:scaleX(1)!important;transition:none
   function tick(now) {
     const dt = Math.min(100, now - (lastTick || now));
     lastTick = now;
-    const k = 0.16;
+    const k = 0.24;
     shown += (target - shown) * (1 - Math.pow(1 - k, dt / 16.667));
     if (Math.abs(target - shown) < 0.0005) { shown = target; rafId = null; lastTick = 0; }
     else rafId = requestAnimationFrame(tick);
@@ -980,24 +1037,24 @@ body.pinned .pain .close em::after{transform:scaleX(1)!important;transition:none
   };
   const SCEN = {
     dinner: {
-      merchant: 'Olive & Ember', logo: ['O', '#B5532F'], cat: 'dining', mult: '4x', amount: '$48.20',
-      win: 'ag', score: 91,
-      headline: '4x on dining, and your balance stays healthy.',
-      reason: 'Amex Gold earns <b>4x at restaurants</b>. After this dinner it sits at <b>38%</b> of its limit, well inside a healthy range.',
-      others: [['fu', 84, '3x dining, 9% used after'], ['sp', 63, '3x dining, but 64% used'], ['dc', 58, '2x on everything, 64% used']]
+      merchant: 'Olive & Ember', logo: ['O', '#B5532F'], cat: 'dining', mult: '3x', amount: '$48.20',
+      win: 'sp', score: 91,
+      headline: '3x on dining, and your balance stays healthy.',
+      reason: 'Chase Sapphire Preferred earns <b>3x at restaurants</b>. After this dinner it sits at <b>38%</b> of its limit, well inside a healthy range.',
+      others: [['fu', 84, '3x dining, 9% used after'], ['ag', 80, '4x dining, charge card'], ['dc', 58, '2x on everything, 64% used']]
     },
     clothing: {
       merchant: 'Juniper & Co.', logo: ['J', '#2E6B5A'], cat: 'clothing', mult: '1.5x', amount: '$53.75',
       win: 'fu', score: 88,
       headline: 'Your balance is low, and using it protects your credit.',
       reason: 'Citi Double Cash earns a little more, but it is already using <b>64%</b> of its limit. Freedom Unlimited earns <b>1.5x</b> and stays at <b>9%</b>.',
-      others: [['ag', 67, '1x here, 38% used'], ['dc', 61, '2x, but 64% used'], ['sp', 55, '1x here, 64% used']]
+      others: [['ag', 67, '1x here, charge card'], ['dc', 61, '2x, but 64% used'], ['sp', 55, '1x here, 38% used']]
     },
     streaming: {
       merchant: 'Lumen TV', logo: ['L', '#4B3A8F'], cat: 'streaming', mult: '3x', amount: '$15.49',
       win: 'sp', score: 82,
       headline: '3x on streaming, and a charge this small barely moves your balance.',
-      reason: 'Sapphire Preferred earns <b>3x on streaming</b>. At $15.49, its utilization stays at <b>64%</b>, so you take the extra points.',
+      reason: 'Sapphire Preferred earns <b>3x on streaming</b>. At $15.49, its utilization stays at <b>38%</b>, so you take the extra points.',
       others: [['dc', 72, '2x on everything'], ['fu', 70, '1.5x here, 8% used'], ['ag', 61, '1x here']]
     }
   };
