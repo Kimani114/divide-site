@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy | Divide</title>
-<meta name="description" content="How Divide handles your information: what we collect, why, who we share it with, and how to delete it.">
+<meta name="description" content="What the Divide extension and dividepay.ai collect, what they don't, where data goes, and what you can do about it.">
 <meta name="theme-color" content="#05211A">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231F5E4F'/%3E%3Crect x='28' y='14' width='8' height='24' rx='4' fill='%233FD3A8'/%3E%3Ccircle cx='32' cy='48' r='5' fill='%233FD3A8'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,6 +27,7 @@ body{margin:0;overflow-x:hidden;overflow-x:clip;background:var(--canvas);color:v
 a{color:var(--forest);text-underline-offset:3px}
 a:hover{color:var(--forest-2)}
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .skip{position:fixed;left:16px;top:-60px;z-index:100;background:var(--accent);color:var(--deep);padding:10px 16px;border-radius:10px;font-weight:700;transition:top .3s var(--ease-out)}
 .skip:focus{top:16px}
 .env{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
@@ -80,6 +81,8 @@ article li{position:relative;padding-left:22px}
 article li::before{content:"";position:absolute;left:2px;top:.68em;width:7px;height:7px;border-radius:50%;background:var(--accent)}
 .note{background:var(--panel);border-radius:14px;padding:16px 18px;margin:18px 0;box-shadow:inset 0 0 0 1.5px var(--line)}
 .note b{color:var(--forest)}
+code{font:500 .9em var(--f-mono);background:#E3F2EB;border-radius:5px;padding:1px 5px}
+article h3 + p,article h3 + ul{margin-top:6px}
 table{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px}
 th,td{text-align:left;padding:11px 12px;vertical-align:top;border-bottom:1.5px solid var(--line)}
 th{font:500 12px/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
@@ -111,127 +114,146 @@ footer a{color:var(--ink-on-deep)}
     <a class="btn" href="index.html#signup">Get launch updates</a>
   </nav>
   <div class="intro">
-    <span class="kicker">Privacy policy</span>
-    <h1>Your data, in plain English.</h1>
-    <p>Divide tells you which card to use. It never moves your money, never stores your full card number, and never sells your information. Here is exactly what we collect and why.</p>
-    <div class="dates"><span>Effective <b>November 8, 2026</b></span><span>Last updated <b>November 8, 2026</b></span></div>
+    <span class="kicker">Divide</span>
+    <h1>Privacy Policy</h1>
+    <p>Divide is a browser extension that suggests which of your credit cards to use at an online checkout. This policy explains what the extension collects, what it does not, and what you can do about it. It also covers this website, dividepay.ai.</p>
+    <p>If anything here is unclear, email <a href="mailto:privacy@dividepay.ai" style="color:var(--accent)">privacy@dividepay.ai</a> and a person will answer.</p>
+    <div class="dates"><span>Last updated <b>November 9, 2026</b></span></div>
   </div>
 </header>
 
-<div class="summary" role="list" aria-label="The short version">
-  <div class="sum" role="listitem"><i aria-hidden="true"></i><b>Advice only</b><span>Divide never processes a payment or touches your money.</span></div>
-  <div class="sum" role="listitem"><i aria-hidden="true"></i><b>No full card numbers</b><span>We only ever keep the last four digits to tell your cards apart.</span></div>
-  <div class="sum" role="listitem"><i aria-hidden="true"></i><b>Never sold</b><span>We don't sell or rent your personal information. Ever.</span></div>
-  <div class="sum" role="listitem"><i aria-hidden="true"></i><b>Yours to delete</b><span>Remove your card data anytime with Reset all data in the extension's Settings.</span></div>
-</div>
+<section class="summary" aria-labelledby="short-h">
+  <h2 id="short-h" class="sr-only">The short version</h2>
+  <div class="sum"><i aria-hidden="true"></i><b>No card numbers</b><span>Divide never sees your full card numbers, your CVV, or your bank login. There is no bank connection.</span></div>
+  <div class="sum"><i aria-hidden="true"></i><b>No payments</b><span>Divide does not process payments. You pay the merchant exactly as you normally would.</span></div>
+  <div class="sum"><i aria-hidden="true"></i><b>On your device</b><span>Your card details are stored on your own device, not on our servers.</span></div>
+  <div class="sum"><i aria-hidden="true"></i><b>Usage data</b><span>Divide sends usage data so we can tell whether it is working. It is on by default, you can turn it off in Settings, and it includes purchase amounts and the cards involved. That data is described in full below.</span></div>
+</section>
 
 <main id="main" class="layout" tabindex="-1">
   <nav class="toc" aria-label="On this page">
     <p>On this page</p>
     <ol>
-      <li><a href="#who">Who we are</a></li>
-      <li><a href="#collect">What we collect</a></li>
-      <li><a href="#use">How we use it</a></li>
-      <li><a href="#share">Who we share it with</a></li>
-      <li><a href="#keep">How long we keep it</a></li>
-      <li><a href="#security">How we protect it</a></li>
-      <li><a href="#choices">Your choices and rights</a></li>
+      <li><a href="#device">What stays on your device</a></li>
+      <li><a href="#sends">What Divide sends to us</a></li>
+      <li><a href="#where">Where that data goes</a></li>
+      <li><a href="#website">This website</a></li>
+      <li><a href="#keep">How long we keep things</a></li>
+      <li><a href="#choices">Your choices</a></li>
+      <li><a href="#rights">Depending on where you live</a></li>
       <li><a href="#kids">Children</a></li>
-      <li><a href="#changes">Changes</a></li>
-      <li><a href="#contact">Contact us</a></li>
+      <li><a href="#changes">Changes to this policy</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ol>
   </nav>
 
   <article>
-    <section id="who">
-      <h2><span class="n">01</span>Who we are</h2>
-      <p>Divide, operated by Kimani Tate ("Divide," "we," "us"), makes the Divide browser extension and runs this website. Divide is based in the United States. This policy covers the extension, this website, and any emails we send you.</p>
-      <p>Divide is an advisory tool. It suggests which of your cards to use at checkout. It does not process payments, move money, apply for credit, or make purchases for you.</p>
+    <section id="device">
+      <h2><span class="n">01</span>What stays on your device</h2>
+      <p>When you add a card in Settings, Divide stores the following in your browser&rsquo;s local storage:</p>
+      <ul>
+        <li>A nickname you choose</li>
+        <li>The last four digits, if you enter them</li>
+        <li>The card network (Visa, Mastercard, Amex, Discover)</li>
+        <li>The credit limit you enter</li>
+        <li>The utilization percentage you enter</li>
+        <li>The reward rates you enter or accept from a template</li>
+        <li>Whether the card has a foreign transaction fee</li>
+      </ul>
+      <p>Your credit limit, your last four digits, and the card network stay on your device; they are not sent anywhere. Your nickname, reward rates, and utilization are included in usage events (see below). If you uninstall Divide, the local copy goes with it.</p>
+      <p>Your preferences (your optimization focus, split threshold, any goal you set and its end date, and your analytics and developer-mode settings) are stored the same way.</p>
     </section>
 
-    <section id="collect">
-      <h2><span class="n">02</span>What we collect</h2>
-      <h3>When you sign up for updates on this website</h3>
+    <section id="sends">
+      <h2><span class="n">02</span>What Divide sends to us</h2>
+      <p>Divide sends usage events so we can tell whether recommendations are working and where detection fails. These events are not linked to your name, your email, or any account. Each installation gets random identifiers instead: a random ID from Firebase&rsquo;s anonymous sign-in, and a random Google Analytics client ID.</p>
+      <p>Events are sent when you open the Divide panel, change the category, type or confirm an amount, choose a different card than the one recommended, apply a recommendation, and when Divide&rsquo;s checkout reminder is shown, clicked, or dismissed.</p>
+      <h3>An event may include</h3>
       <ul>
-        <li>Your email address.</li>
-        <li>Whether you want launch updates or already use Divide.</li>
+        <li>When it happened, and a random ID for the event</li>
+        <li>The merchant&rsquo;s domain (for example <code>amazon.com</code>), not the full page address</li>
+        <li>The detected purchase category, what Divide guessed, and whether you changed it</li>
+        <li>The exact purchase amount, a rough range for it, whether it was detected or typed by you, and how confident detection was</li>
+        <li>The nickname of the card Divide recommended and of the card you chose</li>
+        <li>For those cards: a random card ID Divide created, the reward rate, the utilization percentage you entered, the utilization after this purchase, and Divide&rsquo;s score</li>
+        <li>Whether you followed the recommendation, and the score difference if you didn&rsquo;t</li>
+        <li>Whether a split was suggested, the amount proposed for each card, and whether the store supports two cards or a gift-card route</li>
+        <li>Whether a card would go over its limit, and how stretched your cards are overall</li>
+        <li>How many cards you have saved, your optimization focus setting, and which goal is active, if any</li>
+        <li>The extension version, your install type, and whether developer mode is on</li>
+        <li>The random identifiers for your installation described above</li>
       </ul>
-      <h3>When you use the Divide extension</h3>
+      <h3>An event never includes</h3>
       <ul>
-        <li><b>Card details you add:</b> the card issuer and name, the last four digits, the credit limit, and the balance. Cards are always added by hand, and this is the only card information Divide uses.</li>
-        <li><b>Checkout details:</b> when you're on a checkout page, the extension reads the store name, the purchase total, and the store type so it can score your cards for that purchase.</li>
-        <li><b>Your choices:</b> which recommendations you accept or change, so Divide's suggestions get more accurate for you over time.</li>
+        <li>Card numbers or CVV</li>
+        <li>The last four digits of your cards</li>
+        <li>Your name, email address, or postal address</li>
+        <li>Bank or merchant login details</li>
+        <li>The content of the page you are viewing</li>
+        <li>The full page address</li>
       </ul>
-      <div class="note"><b>What we never collect:</b> your full card number, your card's security code (CVV), your bank password, or the items in your cart.</div>
-      <h3>When you visit this website</h3>
-      <p>This website doesn't use advertising trackers or analytics cookies. Like any website, our hosting provider automatically receives basic technical information when your browser loads the page, such as your IP address and browser type. The page loads its fonts from Google Fonts, which also receives your IP address when it delivers them.</p>
     </section>
 
-    <section id="use">
-      <h2><span class="n">03</span>How we use it</h2>
+    <section id="where">
+      <h2><span class="n">03</span>Where that data goes</h2>
+      <p>Usage events are sent to:</p>
       <ul>
-        <li>To recommend the best card for each purchase and explain why.</li>
-        <li>To show how a purchase would change each card's balance and utilization.</li>
-        <li>To improve the accuracy of recommendations, including learning from the recommendations you accept or change.</li>
-        <li>To send the emails you asked for, like the launch announcement and product updates.</li>
-        <li>To keep Divide secure, fix problems, and respond to you when you contact us.</li>
-        <li>To meet legal obligations.</li>
+        <li>Google Firebase Realtime Database, where they are stored. Access is restricted to Divide&rsquo;s team.</li>
+        <li>Google Analytics 4, which we use to summarise usage. Google Analytics receives the amount, domain, category, reward rates, utilization percentages, and scores, but not card nicknames or card IDs.</li>
       </ul>
-      <p>We don't use your information to make credit decisions, and we don't sell it to lenders, advertisers, or data brokers.</p>
+      <p>Both are operated by Google, and Google&rsquo;s own privacy terms apply to data it processes on our behalf. We do not sell data to anyone, and we do not share it with advertisers, card issuers, or merchants.</p>
+      <div class="note">No merchant commission or card referral influences what Divide recommends. The recommendation is produced from the card details and preferences you entered and the checkout you&rsquo;re on (the store, amount, and category), and nothing else.</div>
     </section>
 
-    <section id="share">
-      <h2><span class="n">04</span>Who we share it with</h2>
-      <p>We don't sell or rent your personal information. We share it only with service providers that help us run Divide, and only what they need to do their job:</p>
-      <div class="tablewrap">
-        <table>
-          <thead><tr><th>Provider</th><th>What they do</th><th>What they receive</th></tr></thead>
-          <tbody>
-            <tr><td>Klaviyo</td><td>Sends our emails</td><td>Your email address and signup choice</td></tr>
-            <tr><td>Our hosting provider</td><td>Serves this website</td><td>Basic technical data like IP address</td></tr>
-            <tr><td>Google Fonts</td><td>Delivers the website's fonts</td><td>Your IP address and browser type</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p>We may also share information if the law requires it, to protect the rights and safety of our users or others, or as part of a merger or sale of our business. If that happens, this policy will still apply to your information.</p>
+    <section id="website">
+      <h2><span class="n">04</span>This website</h2>
+      <ul>
+        <li><b>Launch-update signups:</b> if you sign up on dividepay.ai, we collect your email address and whether you want launch updates or already use Divide. Klaviyo stores the list and sends the emails. Unsubscribe with the link in any email.</li>
+        <li><b>Hosting:</b> the site is hosted on GitHub Pages, which receives standard technical data like your IP address when your browser loads it.</li>
+        <li><b>Fonts:</b> the site loads fonts from Google Fonts, which receives your IP address and browser type.</li>
+        <li>The website uses no analytics or advertising cookies.</li>
+      </ul>
     </section>
 
     <section id="keep">
-      <h2><span class="n">05</span>How long we keep it</h2>
-      <p>We keep your information only as long as you use Divide or stay on our email list. Your card details are stored in your browser, not on our servers. You can remove them at any time using Reset all data in the extension's Settings, or by uninstalling the extension. When you unsubscribe, we stop emailing you and remove you from our list. We may keep a small amount of information longer when the law requires it.</p>
-    </section>
-
-    <section id="security">
-      <h2><span class="n">06</span>How we protect it</h2>
-      <p>Your information is encrypted when it travels and when it's stored. Access is limited to the people and services that need it to run Divide. No system is perfectly secure, but we work hard to protect your data and will tell you promptly if a breach affects you.</p>
+      <h2><span class="n">05</span>How long we keep things</h2>
+      <p>Usage events are kept until they are deleted. There is no scheduled purge yet. When we add one, we will update this page.</p>
+      <p>Before they&rsquo;re delivered, queued events wait on your device (at most 1,000 events or 5 MB) and are removed from your device once delivered.</p>
+      <p>Signup emails are kept until you unsubscribe.</p>
     </section>
 
     <section id="choices">
-      <h2><span class="n">07</span>Your choices and rights</h2>
-      <ul>
-        <li><b>Cards are added by hand:</b> Divide never connects to your bank.</li>
-        <li><b>Edit or remove cards</b> anytime in the extension.</li>
-        <li><b>Delete everything</b> with Reset all data in the extension's Settings, or by uninstalling the extension.</li>
-        <li><b>Unsubscribe</b> from emails with the link at the bottom of any email.</li>
-        <li><b>Ask for a copy</b> of the information we have about you.</li>
-      </ul>
-      <p>Depending on where you live, including California and other US states, you may have additional rights to know, access, correct, or delete your personal information, and to not be treated differently for using them. We honor these requests for everyone. Email us and we'll respond within 30 days.</p>
+      <h2><span class="n">06</span>Your choices</h2>
+      <h3>Turn off analytics</h3>
+      <p>Divide&rsquo;s Settings page has a &ldquo;Share usage analytics&rdquo; switch. It is on by default. Turning it off stops collection and delivery and erases any queued events. Events that were already delivered are not recalled.</p>
+      <h3>Usage events and deletion</h3>
+      <p>Usage events aren&rsquo;t tied to your name or email, so we can&rsquo;t look up your events from an email request alone. Turning off analytics stops all future collection.</p>
+      <h3>Remove everything locally</h3>
+      <p>Settings has an &ldquo;Erase local data&rdquo; button that clears your cards, preferences, and queued events on this device. Uninstalling the extension does the same. Events already delivered are not affected.</p>
+      <h3>Export your data</h3>
+      <p>Settings has an &ldquo;Export JSON&rdquo; button that gives you your cards, preferences, and the recent event history stored on this device.</p>
+    </section>
+
+    <section id="rights">
+      <h2><span class="n">07</span>Depending on where you live</h2>
+      <p>If you are in the European Economic Area or the United Kingdom, you have rights to access, correct, delete, and object to the processing of your personal data. If you are in California, you have rights under the CCPA, including the right to know what is collected and to request deletion. We do not sell personal information as that term is defined under the CCPA.</p>
+      <p>To exercise any of these, email <a href="mailto:privacy@dividepay.ai">privacy@dividepay.ai</a>. For your signup email, we can find, correct, or delete your record. For usage events, see &ldquo;Usage events and deletion&rdquo; above.</p>
     </section>
 
     <section id="kids">
       <h2><span class="n">08</span>Children</h2>
-      <p>Divide is built for adults who manage their own credit cards. It isn't meant for anyone under 18, and we don't knowingly collect information from children. If you think a child has given us information, contact us and we'll delete it.</p>
+      <p>Divide is not directed at children under 13 and we do not knowingly collect information from them.</p>
     </section>
 
     <section id="changes">
       <h2><span class="n">09</span>Changes to this policy</h2>
-      <p>If we change this policy, we'll update the date at the top. If a change is significant, we'll let you know by email or in the extension before it takes effect.</p>
+      <p>If we change what Divide collects, we will update this page and change the date at the top. Where the change is significant, we will ask for your consent inside the extension before it takes effect, as the Chrome Web Store requires.</p>
     </section>
 
     <section id="contact">
-      <h2><span class="n">10</span>Contact us</h2>
-      <p>Questions, requests, or concerns about your privacy? Email us at <a href="mailto:privacy@dividepay.ai">privacy@dividepay.ai</a>.</p>
-      <p>Divide, operated by Kimani Tate<br>United States<br><a href="mailto:privacy@dividepay.ai">privacy@dividepay.ai</a></p>
+      <h2><span class="n">10</span>Contact</h2>
+      <p><a href="mailto:privacy@dividepay.ai">privacy@dividepay.ai</a></p>
+      <p>Divide, operated by Kimani Tate<br>United States</p>
     </section>
   </article>
 </main>
