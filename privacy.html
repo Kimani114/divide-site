@@ -102,6 +102,10 @@ footer a{color:var(--ink-on-deep)}
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .sum{opacity:1;transform:none}
 }
+
+/* keep the longer menu-bar CTA on one line on phones */
+@media (max-width:480px){.nav .btn{font-size:12.5px;padding:10px 14px;white-space:nowrap}}
+@media (max-width:360px){.nav .wordmark{font-size:24px}.nav .btn{font-size:11.5px;padding:10px 12px}}
 </style>
 </head>
 <body>
@@ -111,7 +115,7 @@ footer a{color:var(--ink-on-deep)}
 <header class="top">
   <nav class="nav" aria-label="Main">
     <a class="wordmark" href="index.html" aria-label="Divide, home">div<span class="flip" aria-hidden="true">i</span>de</a>
-    <a class="btn" href="index.html#signup">Get launch updates</a>
+    <a class="btn" href="index.html#signup">Get Divide the day it launches</a>
   </nav>
   <div class="intro">
     <span class="kicker">Divide</span>
